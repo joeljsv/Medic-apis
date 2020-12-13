@@ -83,8 +83,8 @@ router.post("/confirm", (req, res, next) => {
     client.calls
         .create({
             url: 'http://demo.twilio.com/docs/voice.xml',
-            to: '+917034445301',
-            from: '+12147538001'
+            to: '+91'+req.body.phone,
+            from:  process.env.Twilio_phone
         })
         .then(call => {
             console.log(call.sid);
@@ -96,8 +96,8 @@ router.post("/confirm", (req, res, next) => {
                 client.messages 
                 .create({ 
                    body: 'Hello!\nYour Booking was Confirmed\nThankyou for using MEDIC😊\n\n\nHave a great day,\nTeam MEDIC😎', 
-                   from: 'whatsapp:+14155238886',       
-                   to: 'whatsapp:+917356491705' 
+                   from: 'whatsapp:'+Twilio_phone,       
+                   to: 'whatsapp:+91'+req.body.phone 
                  }) 
                 .then(message => console.log(message.sid)) 
                 .done();
