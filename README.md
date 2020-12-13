@@ -117,7 +117,7 @@
 ````
 - ### Diabetes
 ```    
-    Request : http://XXX.X.X.1:5000/predict??type=Ddiabetes
+    Request : http://XXX.X.X.1:5000/predict??type=diabetes
 ```
     body:
 ```
